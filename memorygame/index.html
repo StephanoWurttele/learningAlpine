@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Page Title</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	</head>
+	<body>
+    <div x-data="game()" class="px-10 flex items-center justify-center min-h-screen">
+      <div class="grid grid-cols-4 gap-10 flex-1">
+        <template x-for="card in cards">
+          <div :style="'background: ' + (card.flipped ? card.color : '#999')" 
+               class="h-32 cursor-pointer"
+               @click="card.flipped = !card.flipped"></div>
+        </template>
+      </div>
+		</div>
+    <script>
+      function game(){
+        return {
+          cards: 
+          [
+          {color: 'green', flipped: false, cleared: false},
+          {color: 'blue', flipped: false, cleared: false},
+          {color: 'yellow', flipped: false, cleared: false},
+          {color: 'red', flipped: false, cleared: false},
+          {color: 'green', flipped: false, cleared: false},
+          {color: 'blue', flipped: false, cleared: false},
+          {color: 'yellow', flipped: false, cleared: false},
+          {color: 'red', flipped: false, cleared: false}
+          ]
+        }
+    }
+    </script>
+	</body>
+</html>
+
